@@ -1,0 +1,118 @@
+clear all;
+file_path = 'F:\数字图像处理作业\第七次作业\';% 图像文件夹路径 
+test1=imread('test1.tif');test1=test1(:,:,1);
+test2=imread('test2.png');
+test3=imread('test3.jpg');
+test4=imread('test4.bmp');
+test5=imread('test5.png');
+test6=imread('test6.jpg');
+
+T1s = edge(test1,'sobel');%sobel算子
+T2s = edge(test2,'sobel');
+T3s = edge(test3,'sobel');
+T4s = edge(test4,'sobel');
+T5s = edge(test5,'sobel');
+T6s = edge(test6,'sobel');
+
+T1l = edge(test1,'log');%log算子
+T2l = edge(test2,'log');
+T3l = edge(test3,'log');
+T4l = edge(test4,'log');
+T5l = edge(test5,'log');
+T6l = edge(test6,'log');
+
+T1c = edge(test1,'Canny');%Canny算子
+T2c = edge(test2,'Canny');
+T3c = edge(test3,'Canny');
+T4c = edge(test4,'Canny');
+T5c = edge(test5,'Canny');
+T6c = edge(test6,'Canny');
+
+range=-90:0.1:89; range1=-60:0.1:59; range2=-30:0.1:29; 
+peaknumber=9;  peaknumber1=5;  peaknumber2=15;
+
+figure(1);
+subplot(3,4,1);imshow(T1s);title('test1 Sobel算子');
+subplot(3,4,2);houghdec(T1s,range,peaknumber,test1);title('test1 Sobel+hough');
+subplot(3,4,3);imshow(T2s);title('test2 Sobel算子');
+subplot(3,4,4);houghdec(T2s,range,peaknumber,test2);title('test2 Sobel+hough');
+subplot(3,4,5);imshow(T3s);title('test3 Sobel算子');
+subplot(3,4,6);houghdec(T3s,range,peaknumber,test3);title('test3 Sobel+hough');
+subplot(3,4,7);imshow(T4s);title('test4 Sobel算子');
+subplot(3,4,8);houghdec(T4s,range,peaknumber,test4);title('test4 Sobel+hough');
+subplot(3,4,9);imshow(T5s);title('test5 Sobel算子');
+subplot(3,4,10);houghdec(T5s,range,peaknumber,test5);title('test5 Sobel+hough');
+subplot(3,4,11);imshow(T6s);title('test6 Sobel算子');
+subplot(3,4,12);houghdec(T6s,range,peaknumber,test6);title('test6 Sobel+hough');
+
+figure(2);
+subplot(3,4,1);imshow(T1l);title('test1 log算子');
+subplot(3,4,2);houghdec(T1l,range,peaknumber,test1);title('test1 log+hough');
+subplot(3,4,3);imshow(T2l);title('test2 log算子');
+subplot(3,4,4);houghdec(T2l,range,peaknumber,test2);title('test2 log+hough');
+subplot(3,4,5);imshow(T3l);title('test3 log算子');
+subplot(3,4,6);houghdec(T3l,range,peaknumber,test3);title('test3 log+hough');
+subplot(3,4,7);imshow(T4l);title('test4 log算子');
+subplot(3,4,8);houghdec(T4l,range,peaknumber,test4);title('test4 log+hough');
+subplot(3,4,9);imshow(T5l);title('test5 log算子');
+subplot(3,4,10);houghdec(T5l,range,peaknumber,test5);title('test5 log+hough');
+subplot(3,4,11);imshow(T6l);title('test6 log算子');
+subplot(3,4,12);houghdec(T6l,range,peaknumber,test6);title('test6 log+hough');
+
+figure(3);
+subplot(3,4,1);imshow(T1c);title('test1 Canny算子');
+subplot(3,4,2);houghdec(T1c,range,peaknumber,test1);title('test1 Canny+hough');
+subplot(3,4,3);imshow(T2c);title('test2 Canny算子');
+subplot(3,4,4);houghdec(T2c,range,peaknumber,test2);title('test2 Canny+hough');
+subplot(3,4,5);imshow(T3c);title('test3 Canny算子');
+subplot(3,4,6);houghdec(T3c,range,peaknumber,test3);title('test3 Canny+hough');
+subplot(3,4,7);imshow(T4c);title('test4 Canny算子');
+subplot(3,4,8);houghdec(T4c,range,peaknumber,test4);title('test4 Canny+hough');
+subplot(3,4,9);imshow(T5c);title('test5 Canny算子');
+subplot(3,4,10);houghdec(T5c,range,peaknumber,test5);title('test5 Canny+hough');
+subplot(3,4,11);imshow(T6c);title('test6 Canny算子');
+subplot(3,4,12);houghdec(T6c,range,peaknumber,test6);title('test6 Canny+hough');
+
+figure(4);
+subplot(3,4,1);houghdec(T1c,range,peaknumber,test1);title('test1 hough范围(-90,89)');
+subplot(3,4,2);houghdec(T2c,range,peaknumber,test2);title('test2 hough范围(-90,89)');
+subplot(3,4,3);houghdec(T3c,range,peaknumber,test3);title('test3 hough范围(-90,89)');
+subplot(3,4,4);houghdec(T4c,range,peaknumber,test4);title('test4 hough范围(-90,89)');
+subplot(3,4,5);houghdec(T1c,range1,peaknumber,test1);title('test1 hough范围(-60,59)');
+subplot(3,4,6);houghdec(T2c,range1,peaknumber,test2);title('test2 hough范围(-60,59)');
+subplot(3,4,7);houghdec(T3c,range1,peaknumber,test3);title('test3 hough范围(-60,59)');
+subplot(3,4,8);houghdec(T4c,range1,peaknumber,test4);title('test4 hough范围(-60,59)');
+subplot(3,4,9);houghdec(T1c,range2,peaknumber,test1);title('test1 hough范围(-30,29)');
+subplot(3,4,10);houghdec(T2c,range2,peaknumber,test2);title('test2 hough范围(-30,29)');
+subplot(3,4,11);houghdec(T3c,range2,peaknumber,test3);title('test3 hough范围(-30,29)');
+subplot(3,4,12);houghdec(T4c,range2,peaknumber,test4);title('test4 hough范围(-30,29)');
+
+figure(5);
+subplot(3,4,1);houghdec(T1c,range,peaknumber1,test1);title('test1 hough 极值数5');
+subplot(3,4,2);houghdec(T2c,range,peaknumber1,test2);title('test2 hough 极值数5');
+subplot(3,4,3);houghdec(T3c,range,peaknumber1,test3);title('test3 hough 极值数5');
+subplot(3,4,4);houghdec(T4c,range,peaknumber1,test4);title('test4 hough 极值数5');
+subplot(3,4,5);houghdec(T1c,range,peaknumber,test1);title('test1 hough 极值数9');
+subplot(3,4,6);houghdec(T2c,range,peaknumber,test2);title('test2 hough 极值数9');
+subplot(3,4,7);houghdec(T3c,range,peaknumber,test3);title('test3 hough 极值数9');
+subplot(3,4,8);houghdec(T4c,range,peaknumber,test4);title('test4 hough 极值数9');
+subplot(3,4,9);houghdec(T1c,range,peaknumber2,test1);title('test1 hough 极值数15');
+subplot(3,4,10);houghdec(T2c,range,peaknumber2,test2);title('test2 hough 极值数15');
+subplot(3,4,11);houghdec(T3c,range,peaknumber2,test3);title('test3 hough 极值数15');
+subplot(3,4,12);houghdec(T4c,range,peaknumber2,test4);title('test4 hough 极值数15');
+
+function houghdec(Image,range,peaknumber,ImgOri)
+% Create the Hough transform using the binary image
+[H,T,R] = hough(Image,'Theta',range); 
+%求极值点
+Peaks=houghpeaks(H,peaknumber); 
+%得到线段信息 
+lines=houghlines(Image,T,R,Peaks);
+imshow(ImgOri), hold on;
+for k = 1:length(lines)
+   xy = [lines(k).point1; lines(k).point2];
+   plot(xy(:,1),xy(:,2),'LineWidth',2,'Color','red');
+   plot(xy(1,1),xy(1,2),'x','LineWidth',1,'Color','yellow'); % Plot beginnings and ends of lines
+   plot(xy(2,1),xy(2,2),'x','LineWidth',1,'Color','yellow');
+end
+end
